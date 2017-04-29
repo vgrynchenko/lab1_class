@@ -8,7 +8,7 @@ void main()
 	int cat_index, ind, size, i;
 	double percent, cat1, cat2;
 	bool increase;
-	cout << "Ââåäèòå êîëè÷åñòâî òðåóãîëüíèêîâ â ìàññèâå:";
+	cout << "Enter the number of triangles in the array:";
 	cin >> size;
 
 	re_triangle *triangles = new re_triangle [size];
@@ -16,33 +16,33 @@ void main()
 	{
 		cat1 = 1 + rand() % 15;
 		cat2 = 1 + rand() % 15;
-		cout << "Êàòåòû òðåóãîëüíèêà" << i << ":" << cat1 << " " << cat2 << endl;
+		cout << "Сathetus of the triangle: " << i << ":" << cat1 << " " << cat2 << endl;
 		triangles[i].Setcatet1(cat1);
 		triangles[i].Setcatet2(cat2);
 	}
-	cout << "å èíäåêñ òðåóãîëüíèêà ê êîòîðîìó áóäåò ïðèìåíåíà îïåðàöèÿ :";
+	cout << "Enter the index of the triangle for work: ";
 	cin >> i;
-	cout << "Âûáåðèòå îïåðàöèþ (1 - óâåëè÷åíèå/óìåíüøåíèå, 2 - íàõîæäåíèå ðàäèóñà îïèñàííîé îêðóæíîñòè, 3 - íàõîæäåíèå ïîëóïåðèìåòðà, 4 - íàõîæäåíèå âñåõ óãëîâ): ";
+	cout << "Select an operation (1 - Decrease/Increase, 2 - Radius of the circumscribed circle, 3 - Semiperimeter, 4 - Finding angles): ";
 	cin >> ind;
 	switch (ind)
 	{
 	case 1:
-		cout << "Âûáåðèòå êàòåò äëÿ èçìåíåíèÿ ðàçìåðîâ (1 èëè 2):" << endl;
+		cout << "Select the cathetus for resizing(1 or 2):" << endl;
 		cin >> cat_index;
-		cout << "Âûáåðèòå îïåðàöèþ (1- óâåëè÷åíèå, 0 - óìåíüøåíèå):" << endl;
+		cout << "Find the operation (1- increase, 0 - decrease):" << endl;
 		cin >> increase;
-		cout << "Ââåäèòå íà ñêîëüêó óâåëè÷èâàòü/óìåíüøàòü ñòîðîíó:" << endl;
+		cout << "Enter the percentage increase/decrease:" << endl;
 		cin >> percent;
-		cout << "Ðàçìåð èçìåíåííîé ñòîðîíû:" << triangles[i].scale(cat_index, percent, increase)<< endl;
+		cout << "Size of the modified side :" << triangles[i].scale(cat_index, percent, increase)<< endl;
 		break;
 	case 2:
-		cout << "Ðàäèóñ îïèñàííîé îêðóæíîñòè:" << triangles[i].Radius_of_the_circumscribed_circle() << endl;
+		cout << "Radius of the circumscribed circle :" << triangles[i].Radius_of_the_circumscribed_circle() << endl;
 		break;
 	case 3:
-		cout << "Ïîëóïåðèìåòð:" << triangles[i].half_per() << endl;
+		cout << "Semiperimeter:" << triangles[i].half_per() << endl;
 		break;
 	case 4:
-		cout << "Óãëû:" << endl;
+		cout << "Angles:" << endl;
 		cout << "90" << endl;
 		cout << triangles[i].one_of_the_corners() << endl;
 		cout << triangles[i].second_corner();
